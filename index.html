@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Muh. Hilal Alif Asyachrial — IT Logistics, IT Support & Development, programming, automation, and hardware." />
+  <title>Hilal Alif Asyachrial — IT Portfolio</title>
+  <style>
+    :root{
+      --bg:#f5f5f3; --surface:#ffffff; --surface-2:#ececea;
+      --text:#181818; --muted:#666663; --line:#deded9;
+      --accent:#252525; --accent-2:#444440;
+      --max:1180px; --radius:18px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    header{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(245,245,243,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(222,222,217,.75)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:1.1rem}
+    .brand span{color:var(--muted);font-weight:500}
+    .nav-links{display:flex;gap:28px;align-items:center;font-size:.92rem;color:var(--muted)}
+    .nav-links a:hover{color:var(--text)}
+    .menu{display:none;background:none;border:0;font-size:1.5rem}
+    section{padding:100px 0}
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:140px}
+    .hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:70px;align-items:end}
+    .eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:22px}
+    h1{font-size:clamp(3.2rem,8vw,7.2rem);line-height:.9;letter-spacing:-.075em;max-width:900px}
+    .hero-copy{font-size:1.12rem;color:var(--muted);max-width:650px;margin-top:30px}
+    .actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;border:1px solid var(--text);font-weight:700;font-size:.9rem;transition:.2s}
+    .btn.primary{background:var(--text);color:white}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-card{background:var(--text);color:white;border-radius:var(--radius);padding:28px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+    .hero-card .big{font-size:4.5rem;line-height:1;font-weight:800;letter-spacing:-.08em}
+    .hero-card p{color:#bdbdb8;font-size:.9rem}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    .section-head h2{font-size:clamp(2rem,4vw,3.7rem);letter-spacing:-.055em;line-height:1}
+    .section-head p{max-width:450px;color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+    .about-text{font-size:1.3rem;letter-spacing:-.02em}
+    .facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+    .fact{padding:20px 0;border-bottom:1px solid var(--line)}
+    .fact small{display:block;color:var(--muted);font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+    .experience{display:grid;gap:16px}
+    .job{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:grid;grid-template-columns:250px 1fr;gap:35px}
+    .job-meta{color:var(--muted);font-size:.9rem}
+    .job h3{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:4px}
+    .role{color:var(--muted);margin-bottom:18px}
+    .job ul{padding-left:19px;color:#4f4f4c}
+    .job li+li{margin-top:7px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .tag{padding:6px 10px;background:var(--surface-2);border-radius:999px;font-size:.76rem;color:#555}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:25px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between}
+    .project-num{font-size:.78rem;color:var(--muted)}
+    .project h3{font-size:1.45rem;line-height:1.05;letter-spacing:-.035em;margin:20px 0 10px}
+    .project p{color:var(--muted);font-size:.9rem}
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .skill-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+    .skill-box h3{margin-bottom:20px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:9px}
+    .skill-list span{border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:.84rem}
+    .timeline{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:25px}
+    .card h3{font-size:1.15rem;margin-bottom:5px}
+    .card p{color:var(--muted);font-size:.9rem}
+    .contact{background:var(--text);color:white;border-radius:28px;padding:55px}
+    .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px}
+    .contact h2{font-size:clamp(2.5rem,6vw,5rem);line-height:.95;letter-spacing:-.06em}
+    .contact p{color:#bdbdb8;margin-top:22px;max-width:550px}
+    .contact-links{display:grid;gap:10px;align-content:end}
+    .contact-links a{border-bottom:1px solid #4b4b4b;padding:13px 0;color:#eee}
+    footer{padding:30px 0;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:850px){
+      .nav-links{display:none}.menu{display:block}
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{min-height:auto;padding-top:140px;padding-bottom:70px}
+      .hero-card{min-height:220px}
+      .projects{grid-template-columns:1fr 1fr}
+      .job{grid-template-columns:1fr;gap:15px}
+    }
+    @media(max-width:560px){
+      .container{width:min(var(--max),calc(100% - 28px))}
+      section{padding:75px 0}
+      .projects,.skills-grid,.timeline{grid-template-columns:1fr}
+      .hero h1{font-size:3.55rem}
+      .contact{padding:32px 24px;border-radius:20px}
+      footer{flex-direction:column}
+      .facts{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#top">HILAL<span> / IT</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </div>
+      <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">IT Logistics · Support · Development</div>
+        <h1>Muh. Hilal<br>Alif Asyachrial</h1>
+        <p class="hero-copy">IT professional focused on logistics systems, process automation, data analysis, software development, hardware troubleshooting, and practical digital solutions for manufacturing environments.</p>
+        <div class="actions">
+          <a class="btn primary" href="#experience">Explore experience</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div><div class="big">IT<br>×<br>Ops</div></div>
+        <p>Based in Indonesia · Currently IT Logistics at PT Mekar Armada Jaya</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head"><h2>About</h2><p>A practical blend of IT support, development, automation, and operational data work.</p></div>
+      <div class="about-grid">
+        <p class="about-text">I'm Hilal, an IT Logistics professional working across integrated warehouse systems, SAP MM transactions, material requirements, reporting, automation, and IT support. I enjoy turning operational problems into simpler, more reliable digital workflows.</p>
+        <div class="facts">
+          <div class="fact"><small>Current role</small><strong>IT Logistics — PT Mekar Armada Jaya</strong></div>
+          <div class="fact"><small>Education</small><strong>Politeknik Elektronika Negeri Surabaya</strong></div>
+          <div class="fact"><small>Core focus</small><strong>Automation & Data</strong></div>
+          <div class="fact"><small>Certification</small><strong>Junior Web Developer — BNSP</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head"><h2>Experience</h2><p>Selected responsibilities and outcomes from the CV.</p></div>
+      <div class="experience">
+        <article class="job">
+          <div class="job-meta"><strong>Jan 2025 — Present</strong><br>Bekasi, Indonesia</div>
+          <div><h3>PT Mekar Armada Jaya</h3><div class="role">IT Logistics (Support & Data Staff)</div>
+            <ul>
+              <li>Analyze stock and material/part transactions in SAP MM.</li>
+              <li>Calculate monthly material and part requirements against customer MDFO.</li>
+              <li>Create weekly logistics KPI monitoring reports and present them to department head and director.</li>
+              <li>Created an automated supplier material/part order recap using VB, increasing process effectiveness by 80%.</li>
+              <li>Support printers, handheld scanners, and other IT devices installed in the logistics area.</li>
+              <li>Created a mobile system to calculate and summarize Stock Opname for events over six months.</li>
+            </ul>
+            <div class="tags"><span class="tag">SAP MM</span><span class="tag">Excel / VB</span><span class="tag">Logistics</span><span class="tag">Data</span></div>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta"><strong>Apr 2024 — Dec 2024</strong><br>Karawang, Indonesia</div>
+          <div><h3>PT Sankei Dharma Indonesia</h3><div class="role">IT Support & Development</div>
+            <ul>
+              <li>Troubleshot software systems, operating systems, hardware, networks, and IT peripherals.</li>
+              <li>Supported mass production of Kanban projects in welding spot production for Model D55 & D74 with 100% stated data accuracy.</li>
+              <li>Completed IT KPI relayout and server room cleanliness projects.</li>
+              <li>Manufactured an Andon V2 electronic circuit for a new production building.</li>
+              <li>Prepared weekly IT activity and next-week planning reports.</li>
+            </ul>
+            <div class="tags"><span class="tag">IT Support</span><span class="tag">Hardware</span><span class="tag">Network</span><span class="tag">Manufacturing</span></div>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta"><strong>Sep 2023 — Dec 2023</strong><br>Surabaya, Indonesia</div>
+          <div><h3>Vixmo Transportasi Cerdas</h3><div class="role">Electric Engineer</div>
+            <ul><li>Researched MCU products used in electric cars, focusing on MCU IO and MCU BX.</li><li>Evaluated hardware circuit designs and programmed MCU IO/BX for vehicle components and environment/location monitoring.</li></ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta"><strong>Feb 2022 — Feb 2023</strong></div>
+          <div><h3>Sirkadian Healthware</h3><div class="role">Engineer Staff</div>
+            <ul><li>Created electronic hardware design for BIA-based digital scale products.</li><li>Programmed realtime data transmission and performed testing, evaluation, and internet monitoring.</li></ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta"><strong>Jan 2022 — Jul 2022</strong><br>Surabaya, Indonesia</div>
+          <div><h3>PT PELINDO III (Persero)</h3><div class="role">IT Programmer Intern</div>
+            <ul><li>Designed gate turnstile monitoring flows and developed native monitoring and face-recognition websites using HTML, CSS, and JavaScript.</li><li>Integrated the website with an IoT device at Nilam Port.</li></ul>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">IoT</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head"><h2>Selected work</h2><p>Project highlights represented from the CV and professional profile.</p></div>
+      <div class="projects">
+        <article class="project"><div class="project-num">01 / AUTOMATION</div><div><h3>Supplier Order Recap Automation</h3><p>VB-based automation for supplier material and part order recaps, reported to increase process effectiveness by 80%.</p></div></article>
+        <article class="project"><div class="project-num">02 / WEB + IOT</div><div><h3>Gate Turnstile Monitoring</h3><p>Native monitoring and face-recognition websites using HTML, CSS and JavaScript, integrated with an IoT device at Nilam Port.</p></div></article>
+        <article class="project"><div class="project-num">03 / AI + WEB</div><div><h3>Multi-Face Recognition</h3><p>Final project using Python, Flask and MySQL to process camera-recognized face data for an employee presence system.</p></div></article>
+        <article class="project"><div class="project-num">04 / HARDWARE</div><div><h3>BIA Digital Scale</h3><p>Electronic hardware design and programming for realtime data transmission from BIA-based digital scale products.</p></div></article>
+        <article class="project"><div class="project-num">05 / MANUFACTURING</div><div><h3>Kanban Mass Production</h3><p>Supported mass production of Kanban projects in welding spot production for Model D55 & D74 with stated data accuracy of 100%.</p></div></article>
+        <article class="project"><div class="project-num">06 / EMBEDDED</div><div><h3>Electric Vehicle MCU</h3><p>MCU research, circuit evaluation, and programming for electric vehicle components and environment/location monitoring.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head"><h2>Skills</h2><p>Technical and professional capabilities listed in the CV.</p></div>
+      <div class="skills-grid">
+        <div class="skill-box"><h3>Hard skills</h3><div class="skill-list"><span>C</span><span>C++</span><span>Python</span><span>HTML5</span><span>CSS</span><span>MySQL</span><span>PHP</span><span>Microsoft Excel</span><span>Hardware Troubleshooting</span><span>Device Installation</span><span>Mikrotik</span></div></div>
+        <div class="skill-box"><h3>Soft skills</h3><div class="skill-list"><span>Teamwork</span><span>Problem Solving</span><span>Scheduling & Planning</span><span>Presentation</span><span>English — TOEFL 450</span><span>Japanese — Beginner</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head"><h2>Achievements & Education</h2><p>Selected achievements, certification, and academic background.</p></div>
+      <div class="timeline">
+        <div class="card"><h3>Best Presentation — Internal QCC</h3><p>PT Mekar Armada Jaya · Jul 2025</p></div>
+        <div class="card"><h3>Gold Medal — GQCC</h3><p>Toyota Manufacturing Club · Oct 2024</p></div>
+        <div class="card"><h3>Junior Web Developer</h3><p>BNSP certification · Expired Jan 2028</p></div>
+        <div class="card"><h3>Politeknik Elektronika Negeri Surabaya</h3><p>Jun 2019 — Jul 2023 · Final Project: Implementasi Multi-Face Recognition untuk akses pegawai menggunakan Deep Learning.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div class="contact-grid">
+          <div><div class="eyebrow" style="color:#aaa">Contact</div><h2>Let's build something useful.</h2><p>Open to professional conversations around IT, logistics systems, automation, development, data, and technology projects.</p></div>
+          <div class="contact-links">
+            <a href="mailto:hilal.alif2001@gmail.com">hilal.alif2001@gmail.com ↗</a>
+            <a href="tel:+6285157995292">+62 851 5799 5292 ↗</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="container"><span>© 2026 Muh. Hilal Alif Asyachrial</span><span>IT Logistics · Support · Development</span></footer>
+
+<script>
+function toggleMenu(){
+  const nav=document.querySelector('.nav-links');
+  const open=nav.style.display==='flex';
+  nav.style.display=open?'none':'flex';
+  if(!open){
+    nav.style.position='absolute';nav.style.top='72px';nav.style.left='14px';nav.style.right='14px';
+    nav.style.flexDirection='column';nav.style.alignItems='flex-start';nav.style.padding='18px';
+    nav.style.background='rgba(255,255,255,.98)';nav.style.border='1px solid #deded9';nav.style.borderRadius='16px';
+  }
+}
+</script>
+</body>
+</html>
